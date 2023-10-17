@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://freepasswordgenerator.app
+
+# Sitemaps
+Sitemap: https://freepasswordgenerator.app/sitemap.xml

@@ -1,0 +1,18 @@
+
+{
+    "light": "Weiß",
+    "dark" : "Dunke",
+    "copy": "Kopieren",
+    "refresh": "Regenerieren",
+    "recent_passwords": "Letzte Passwörter",
+    "password_length": "Passwortlänge",
+    "uppercase": "Großbuchstabe",
+    "lowercase": "Kleinbuchstaben",
+    "symbols": "Symbole",
+    "numbers": "Zählen",
+    "title": "Kostenloser Passwort-Generator",
+    "content": "Hallo, das ist Inhalt",
+    "copy_success_msg" : "Passwort kopiert",
+    "password_delete_msg" : "Passwort gelöscht",
+    "error_msg_one_must_be_true" : "Mindestens ein Kennworttyp muss wahr sein"
+}
