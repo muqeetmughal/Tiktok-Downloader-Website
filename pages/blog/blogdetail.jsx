@@ -2,9 +2,29 @@
 import Image from 'next/image'
 import React from 'react'
 import image from "./blog.jpg";
+import Breadcrumbs from '../../components/Breadcrumbs';
 const blogDetail = () => {
   return (
     <>
+     <Breadcrumbs pageTitle="Blog Detail" urls={[
+      {
+        title:"Home",
+        url: "/",
+        isActive:false
+      },
+      {
+        title:"Blog",
+        url: "/blog",
+        isActive:false
+
+      },
+      {
+        title:"Blog Detail",
+        url: "blog/blogdetail",
+        isActive:true
+
+      },
+    ]}/>
     <div className="w-full h-full sm:max-w-screen-sm sm:mx-auto">
 
         <div className="card my-1 shadow-xl">

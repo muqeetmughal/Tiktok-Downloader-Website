@@ -1,8 +1,22 @@
 import React from 'react'
+import Breadcrumbs from '../components/Breadcrumbs'
 
 const TermsOfService = () => {
   return (
     <>
+     <Breadcrumbs pageTitle="Terms of Service" urls={[
+      {
+        title:"Home",
+        url: "/",
+        isActive:false
+      },
+      {
+        title:"Terms of Service",
+        url: "/terms-of-service",
+        isActive:true
+
+      }
+    ]}/>
       <div className="w-full h-full sm:max-w-screen-sm sm:mx-auto">
 
         <div className="card my-1 shadow-xl">

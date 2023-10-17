@@ -3,9 +3,24 @@ import React from 'react'
 import Image from 'next/image';
 import image from "./blog.jpg";
 import Link from 'next/link';
+import Breadcrumbs from '../../components/Breadcrumbs';
+
 const BlogPage = () => {
   return (
     <>
+    <Breadcrumbs pageTitle="Blogs" urls={[
+      {
+        title:"Home",
+        url: "/",
+        isActive:false
+      },
+      {
+        title:"Blog",
+        url: "/blog",
+        isActive:true
+
+      }
+    ]}/>
       <div className="w-full h-full sm:max-w-screen-sm sm:mx-auto">
 
         <div className="card my-1 shadow-xl">

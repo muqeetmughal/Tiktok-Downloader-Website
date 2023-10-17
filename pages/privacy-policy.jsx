@@ -1,9 +1,23 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react'
+import Breadcrumbs from '../components/Breadcrumbs'
 
 const PrivacyPolicy = () => {
   return (
     <>
+    <Breadcrumbs pageTitle="Privacy Policy" urls={[
+      {
+        title:"Home",
+        url: "/",
+        isActive:false
+      },
+      {
+        title:"Privacy Policy",
+        url: "/privacy-policy",
+        isActive:true
+
+      }
+    ]}/>
     <div className="w-full h-full sm:max-w-screen-sm sm:mx-auto">
 
         <div className="card my-1 shadow-xl">
