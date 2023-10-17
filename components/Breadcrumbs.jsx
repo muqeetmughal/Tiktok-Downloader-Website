@@ -6,7 +6,8 @@ const Breadcrumbs = (props) => {
   return (
    <>
     <div className="bg-gradient-to-b to-purple-600 from-pink-500 p-5">
-      <div className="container mx-auto p-4 flex justify-between sm:max-w-screen-sm sm:mx-auto">
+    <div class="container mx-auto p-4 sm:flex sm:justify-between sm:max-w-screen-sm sm:mx-auto">
+
         <h1 className="text-3xl font-semibold text-white mt-0 mb-2">{pageTitle}</h1>
         <nav className="text-white font-semibold text-white">
           <ol className="list-none p-0 inline-flex">
