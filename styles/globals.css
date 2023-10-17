@@ -8,3 +8,53 @@
     padding-bottom: 2em;
     margin-top: 0 !important;
 } */
+
+article>h1.wp-block-heading {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+article>h2.wp-block-heading {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+article>h3.wp-block-heading {
+    font-size: 1.5rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+article>h4.wp-block-heading {
+    font-size: 1rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+article>h5.wp-block-heading {
+    font-size: 0.5rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    font-weight: 200;
+}
+
+article>h6.wp-block-heading {
+    font-size: 0.25rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    font-weight: 100
+}
+
+article>p {
+    margin-bottom: 1.5rem;
+}
+
+article>p>a {
+    color: #9333ea;
+}

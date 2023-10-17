@@ -3,22 +3,22 @@ import Image from "next/image";
 import React from "react";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import { render_image } from "../../utils/blog";
-
+import "./BlogDetail.module.css";
 const BlogDetail = ({ blog }) => {
   return (
     <>
       <Breadcrumbs pageTitle={blog.title.rendered} isBlog={true} />
       <div className="w-full h-full sm:max-w-screen-sm sm:mx-auto">
         <div className="card my-1 shadow-xl">
-          <article className="card-body">
+          <div className="card-body">
             {render_image(blog, "full")}
 
-            <div
+            <article
               dangerouslySetInnerHTML={{
                 __html: blog.content.rendered,
               }}
             />
-          </article>
+          </div>
         </div>
       </div>
     </>

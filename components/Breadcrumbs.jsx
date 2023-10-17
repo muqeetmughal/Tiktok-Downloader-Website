@@ -1,13 +1,16 @@
 import React from "react";
 import Link from "next/link";
-
 const Breadcrumbs = (props) => {
   const { pageTitle, urls, isBlog = false } = props;
   return (
     <>
       <div className="bg-gradient-to-b to-purple-600 from-pink-500 p-5">
         <div className="container mx-auto p-4 sm:flex sm:justify-between sm:max-w-screen-sm sm:mx-auto">
-          <h1 className="text-3xl font-semibold text-white mt-0 mb-2">
+          <h1
+            className={`${
+              isBlog ? "text-5xl" : "text-2xl"
+            }  font-semibold text-white mt-0 mb-2`}
+          >
             {pageTitle}
           </h1>
 
