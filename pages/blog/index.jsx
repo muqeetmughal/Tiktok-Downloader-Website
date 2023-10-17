@@ -1,59 +1,36 @@
-import React from "react";
+/* eslint-disable react/no-unescaped-entities */
+import React from 'react'
 import Image from 'next/image';
 import image from "./blog.jpg";
-
 const BlogPage = () => {
   return (
-    <div className="px-8 lg:px-20">
-      <div className="flex flex-wrap justify-center my-5">
-        <div className="w-full lg:w-1/3 card my-2 lg:my-2">
-          <div className="bg-white rounded-lg shadow-md m-2">
-            <div className="relative h-40 w-full">
-              <Image
-                src={image}
-                alt="Card Image"
-                layout="fill"
-              />
+    <>
+      <div className="w-full h-full sm:max-w-screen-sm sm:mx-auto">
+
+        <div className="card my-1 shadow-xl">
+          <div className="card-body">
+            <h2 className="text-lg font-bold mb-4">Blogs</h2>
+
+            <div class="w-full card my-2 lg:my-2">
+              <div class="bg-white rounded-lg shadow-md p-2 flex">
+                <div class="image-container w-1/3">
+                  <Image src={image} alt="Your Image" class="" />
+                </div>
+                <div class="text-container w-2/3 px-3">
+                <h2 className="text-xl font-semibold">Blog Tittle</h2>
+                  <p >
+                    Your text content goes here. It can be as long as you want and will cover more area than the image.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="p-4">
-              <h2 className="text-xl font-semibold">Card 1</h2>
-              <p>This is the card displayed on small screens.</p>
-            </div>
-          </div>
-        </div>
-        <div className="w-full lg:w-1/3 card my-2 lg:my-2">
-          <div className="bg-white rounded-lg shadow-md m-2">
-            <div className="relative h-40 w-full">
-              <Image
-                src={image}
-                alt="Card Image"
-                layout="fill"
-              />
-            </div>
-            <div className="p-4">
-              <h2 className="text-xl font-semibold">Card 2</h2>
-              <p>This is the second card.</p>
-            </div>
-          </div>
-        </div>
-        <div className="w-full lg:w-1/3 card my-2 lg:my-2">
-          <div className="bg-white rounded-lg shadow-md m-2">
-            <div className="relative h-40 w-full">
-              <Image
-                src={image}
-                alt="Card Image"
-                layout="fill"
-              />
-            </div>
-            <div className="p-4">
-              <h2 className="text-xl font-semibold">Card 3</h2>
-              <p>This is the third card.</p>
-            </div>
+
           </div>
         </div>
       </div>
-    </div>
-  );
-};
 
-export default BlogPage;
+    </>
+  )
+}
+
+export default BlogPage
