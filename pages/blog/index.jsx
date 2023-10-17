@@ -1,52 +1,83 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react'
-import Image from 'next/image';
-import image from "./blog.jpg";
-import Link from 'next/link';
-import Breadcrumbs from '../../components/Breadcrumbs';
+import React from "react";
+import Link from "next/link";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import { render_image } from "../../utils/blog";
 
-const BlogPage = () => {
+const BlogPage = ({ blogs }) => {
   return (
     <>
-    <Breadcrumbs pageTitle="Blogs" urls={[
-      {
-        title:"Home",
-        url: "/",
-        isActive:false
-      },
-      {
-        title:"Blog",
-        url: "/blog",
-        isActive:true
-
-      }
-    ]}/>
+      <Breadcrumbs
+        pageTitle="Blogs"
+        urls={[
+          {
+            title: "Home",
+            url: "/",
+            isActive: false,
+          },
+          {
+            title: "Blog",
+            url: "/blog",
+            isActive: true,
+          },
+        ]}
+      />
       <div className="w-full h-full sm:max-w-screen-sm sm:mx-auto">
-
-        <div className="card my-1 shadow-xl">
-          <div className="card-body">
-            <h2 className="text-lg font-bold mb-4">Blogs</h2>
-            <Link href={"blog/blogdetail"}>
-              <div class="w-full card my-2 lg:my-2">
-                <div class=" rounded-lg shadow-md p-2 flex">
-                  <div class="image-container w-1/3">
-                    <Image src={image} alt="Your Image" class="" />
+        {/* <div className="card my-1 shadow-xl"> */}
+        {blogs.map((blog, index) => (
+          <div key={index} className="card-body">
+            <Link href={`/blog/${blog.slug}`}>
+              <div className="w-full card my-2 lg:my-2">
+                <div className=" rounded-lg shadow-md p-2 flex">
+                  <div className="image-container w-1/3">
+                    {render_image(blog, "thumbnail")}
                   </div>
-                  <div class="text-container w-2/3 px-3">
-                    <h2 className="text-xl font-semibold">Blog Tittle</h2>
-                    <p >
-                      Your text content goes here. It can be as long as you want and will cover more area than the image.
-                    </p>
+                  <div className="text-container w-2/3 px-3">
+                    <h2 className="text-xl font-semibold">
+                      {blog.title.rendered}
+                    </h2>
+                    <div
+                      className="line-clamp-1 truncate"
+                      dangerouslySetInnerHTML={{
+                        __html: blog["excerpt"]["rendered"],
+                      }}
+                    >
+                      {/* {blog.excerpt.rendered} */}
+                    </div>
                   </div>
                 </div>
               </div>
             </Link>
           </div>
-        </div>
+        ))}
+        {/* </div> */}
       </div>
-
     </>
-  )
-}
+  );
+};
 
-export default BlogPage
+export default BlogPage;
+
+export async function getServerSideProps() {
+  try {
+    // Fetch data from your API endpoint
+    const res = await fetch(
+      "https://nilkinpakistan.com/wp-json/wp/v2/posts?_embed"
+    );
+
+    const blogs = await res.json();
+
+    return {
+      props: {
+        blogs: blogs,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {
+      props: {
+        blogs: [], // Return an empty array or handle the error as needed
+      },
+    };
+  }
+}

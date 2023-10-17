@@ -1,9 +1,8 @@
 // /** @type {import('next').NextConfig} */
 
-
 const runtimeCaching = require("next-pwa/cache");
 
-const prod = process.env.NODE_ENV === 'production'
+const prod = process.env.NODE_ENV === "production";
 
 const withPWA = require("next-pwa")({
   dest: "public",
@@ -11,16 +10,19 @@ const withPWA = require("next-pwa")({
   skipWaiting: true,
   runtimeCaching,
   buildExcludes: [/middleware-manifest.json$/],
-  disable: prod ? false : true
+  disable: prod ? false : true,
 });
 
 const nextConfig = withPWA({
   reactStrictMode: true,
   swcMinify: true,
   i18n: {
-    locales: ['en', 'de'],
-    defaultLocale: 'en',
-    localeDetection: false
-  }
+    locales: ["en", "de"],
+    defaultLocale: "en",
+    localeDetection: false,
+  },
+  images: {
+    domains: ["nilkinpakistan.com"],
+  },
 });
 module.exports = nextConfig;

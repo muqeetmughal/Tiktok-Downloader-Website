@@ -28,7 +28,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <NextProgress delay={300} options={{ showSpinner: true }} />
+      <NextProgress delay={3000} options={{ showSpinner: true }} />
 
       <MainLayout>
         {/* <RecoilRoot> */}
