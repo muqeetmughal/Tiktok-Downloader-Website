@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -11,7 +12,20 @@ const ContactForm = () => {
   }
 
   return (
+    <>
+    <Breadcrumbs pageTitle="Contact" urls={[
+      {
+        title:"Home",
+        url: "/",
+        isActive:false
+      },
+      {
+        title:"Contact",
+        url: "/contact",
+        isActive:true
 
+      }
+    ]}/>
     <div className="w-full h-full sm:max-w-screen-sm sm:mx-auto">
 
       <form className="grid grid-cols-1 gap-6 my-4" action="#" method="POST">
@@ -40,6 +54,10 @@ const ContactForm = () => {
         </div>
       </form>
     </div>
+
+
+    </>
+
 
 
 
