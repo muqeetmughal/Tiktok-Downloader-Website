@@ -11,23 +11,24 @@ const navMenu = [
     link: "/blog",
   },
   {
-    name: "About",
-    link: "/about",
-    children: [
-      {
-        name: "Contact",
-        link: "/contact",
-      },
-      {
-        name: "Privacy Policy",
-        link: "/privacy-policy",
-      },
-      {
-        name: "Terms of Service",
-        link: "/terms-of-service",
-      },
-    ],
+    name: "Contact",
+    link: "/contact",
   },
+  {
+    name: "Privacy Policy",
+    link: "/privacy-policy",
+  },
+  {
+    name: "Terms of Service",
+    link: "/terms-of-service",
+  },
+  // {
+  //   name: "About",
+  //   link: "/about",
+  //   children: [
+
+  //   ],
+  // },
 ];
 
 const NavMenu = (props) => {
