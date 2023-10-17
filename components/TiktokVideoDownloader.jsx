@@ -7,15 +7,14 @@ const TiktokVideoDownloader = () => {
     <>
       <section>
         <div className="hero" id="splash">
-          <div className="hero-content text-center flex flex-col">
-            <div className="max-w-xl text-white">
+          <div className="hero-content text-center ">
+            <div className="max-w-2xl text-white">
               <h1 className="text-5xl font-bold">{CONTEXT.MAIN_KEYWORD}</h1>
               <p className="py-6">
                 TikTok video downloader tool helping you download TikTok video
                 without watermark
               </p>
-            </div>
-            <div>
+              <div>
               <div className="form-control">
                 <div className="input-group">
                   <input
@@ -23,7 +22,8 @@ const TiktokVideoDownloader = () => {
                     type="text"
                     value={""}
                     placeholder="Just insert a link"
-                    className="input input-bordered w-full max-w-3xl"
+                    className="input input-bordered w-full "
+                    
                   />
                   <button className="btn btn-success gap-2" onClick={() => {}}>
                     <svg
@@ -63,6 +63,8 @@ const TiktokVideoDownloader = () => {
                 </div>
               </div>
             </div>
+            </div>
+           
           </div>
         </div>
         {/* <div id="splash">
