@@ -35,9 +35,8 @@ const TopNav = () => {
           {i18n.t("title")}
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      
         <NavMenu isMobile={false} />
-      </div>
       <div className="navbar-end">
         {/* <label className="swap swap-rotate" >
 
