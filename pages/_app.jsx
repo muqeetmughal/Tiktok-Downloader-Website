@@ -6,13 +6,6 @@ import { themeChange } from "theme-change";
 import { useEffect } from "react";
 import { GoogleAnalytics } from "nextjs-google-analytics";
 
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from "recoil";
 import { useRouter } from "next/router";
 import i18n from "../i18";
 
@@ -28,9 +21,15 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <NextProgress delay={3000} options={{ showSpinner: true }} />
-
       <MainLayout>
+        <NextProgress
+          delay={0}
+          options={{
+            showSpinner: true,
+            disableSameRoute: true,
+          }}
+          color="#9333ea"
+        />
         {/* <RecoilRoot> */}
         <GoogleAnalytics trackPageViews gaMeasurementId="G-1L2TT5D8MB" />
         <Component {...pageProps} />
