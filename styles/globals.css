@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-#splash {
+/* #splash {
     background: linear-gradient(89.86deg, #5940f1 8.6%, #ce00ff 99.86%);
     position: relative;
     padding-bottom: 2em;
     margin-top: 0 !important;
-}
+} */
