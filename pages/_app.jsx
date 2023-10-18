@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} />
         {/* </RecoilRoot> */}
 
-        <Toaster position="bottom-center" reverseOrder={false} />
+        <Toaster position="top-center" reverseOrder={false} />
       </MainLayout>
     </>
   );

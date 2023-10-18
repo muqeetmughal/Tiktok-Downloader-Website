@@ -1,14 +1,20 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import i18n from "../i18";
 import { CONTEXT } from "../constants/variables";
 import { useMutation, useQuery } from "react-query";
 import axios from "axios";
 import LoadingSkeleton from "./LoadingSkeleton";
-const TiktokVideoDownloader = () => {
+import { useRouter } from "next/router";
+import toast from "react-hot-toast";
+const TiktokVideoDownloader = (props) => {
+  const { homeComponent = false } = props;
+
+  const router = useRouter()
   const [videoURL, setVideoURL] = useState(
-    "https://www.tiktok.com/@ubed_sk007/video/7274366546275732741"
+    // "https://www.tiktok.com/@ubed_sk007/video/7274366546275732741"
+    ''
   );
 
   const handleInputChange = (e) => {
@@ -24,15 +30,51 @@ const TiktokVideoDownloader = () => {
   const videoData = video_mutation?.data?.data;
 
   async function handleDownload() {
-    video_mutation
-      .mutateAsync({
-        url: videoURL,
-      })
-      .then((resp) => {
-        console.log("Output", resp);
-      });
+
+    if (homeComponent) {
+      const videoId = videoURL.match(/\/video\/(\d+)/);
+
+      if (videoId && videoId[1]) {
+        router.push(`/download-tiktok-video-without-watermark?url=${videoURL}`)
+      } else {
+        toast.error("Invalid Video URL")
+        setVideoURL('')
+      }
+    } else {
+
+      setVideoURL('')
+      video_mutation
+        .mutateAsync({
+          url: videoURL,
+        })
+        .then((resp) => {
+          console.log("Output", resp);
+        });
+    }
   }
-  console.log("Check", videoData);
+
+
+  useEffect(()=>{
+
+    if (router.query.url){
+      
+          video_mutation
+              .mutateAsync({
+                url: router.query.url,
+              })
+              .then((resp) => {
+                console.log("Output", resp);
+              });
+
+    }
+
+
+
+    console.log("Route changed",)
+  }, [router])
+
+ 
+
 
   return (
     <>
@@ -66,7 +108,7 @@ const TiktokVideoDownloader = () => {
                       <div className="flex flex-col justify-items-start">
                         <button
                           className="btn btn-info mb-3"
-                          // onClick={handleDownload}
+
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +129,7 @@ const TiktokVideoDownloader = () => {
                         </button>
                         <button
                           className="btn btn-info"
-                          // onClick={handleDownload}
+                        // onClick={handleDownload}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +170,7 @@ const TiktokVideoDownloader = () => {
                           />
                           <button
                             className="btn btn-success gap-2"
-                            onClick={() => {}}
+                            onClick={() => { }}
                             disabled={video_mutation.isLoading}
                           >
                             <svg

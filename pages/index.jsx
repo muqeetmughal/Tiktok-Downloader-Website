@@ -32,7 +32,7 @@ const Home = () => {
         <meta name="author" content="Muqeet Mughal"></meta>
       </Head>
 
-      <TiktokVideoDownloader />
+      <TiktokVideoDownloader homeComponent={true} />
 
       <div className="w-full h-full sm:max-w-screen-sm sm:mx-auto">
         <Content />
