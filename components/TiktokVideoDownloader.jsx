@@ -17,6 +17,24 @@ const TiktokVideoDownloader = (props) => {
     ''
   );
 
+  const handlePaste = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      setVideoURL(text);
+    } catch (err) {
+      console.error('Failed to paste:', err);
+    }
+  };
+  function validateTikTokURL(url) {
+
+    var pattern = /^https:\/\/www\.tiktok\.com\/@[\w\d_\.]+\/video\/\d+(\?[\w\d_=&]+)?$/;
+                    
+                  
+  
+    // Test the URL against the pattern
+    return pattern.test(url);
+  }
+
   const handleInputChange = (e) => {
     setVideoURL(e.target.value);
   };
@@ -31,26 +49,33 @@ const TiktokVideoDownloader = (props) => {
 
   async function handleDownload() {
 
-    if (homeComponent) {
-      const videoId = videoURL.match(/\/video\/(\d+)/);
+    if(validateTikTokURL(videoURL)){
+      if (homeComponent) {
+       const videoId = videoURL.match(/\/video\/(\d+)/);
+  
+       if (videoId && videoId[1]) {
+         router.push(`/download-tiktok-video-without-watermark?url=${videoURL}`)
+       } else {
+         toast.error("Invalid Video URL")
+         setVideoURL('')
+       }
+     } else {
+  
+       setVideoURL('')
+       video_mutation
+         .mutateAsync({
+           url: videoURL,
+         })
+         .then((resp) => {
+           console.log("Output", resp);
+         });
+     }
+      
+    }else{
+      toast.error("Invalid tiktok url")
 
-      if (videoId && videoId[1]) {
-        router.push(`/download-tiktok-video-without-watermark?url=${videoURL}`)
-      } else {
-        toast.error("Invalid Video URL")
-        setVideoURL('')
-      }
-    } else {
-
-      setVideoURL('')
-      video_mutation
-        .mutateAsync({
-          url: videoURL,
-        })
-        .then((resp) => {
-          console.log("Output", resp);
-        });
     }
+
   }
 
 
@@ -167,10 +192,11 @@ const TiktokVideoDownloader = (props) => {
                             disabled={video_mutation.isLoading}
                             placeholder="Just insert a link"
                             className="input input-bordered w-full "
+
                           />
                           <button
                             className="btn btn-success gap-2"
-                            onClick={() => { }}
+                            onClick={handlePaste}
                             disabled={video_mutation.isLoading}
                           >
                             <svg
@@ -191,8 +217,10 @@ const TiktokVideoDownloader = (props) => {
                               {i18n.t("paste")}
                             </div>
                           </button>
-                          <button
-                            className="btn btn-info gap-2"
+                          
+                        </div>
+                        <button
+                            className="btn gap-2 my-2 lg:mx-auto btn-primary hover:btn-neutral  text-white"
                             onClick={handleDownload}
                             disabled={video_mutation.isLoading}
                           >
@@ -211,11 +239,8 @@ const TiktokVideoDownloader = (props) => {
                               />
                             </svg>
 
-                            <div className="hidden sm:block">
                               {i18n.t("download")}
-                            </div>
                           </button>
-                        </div>
                       </div>
                     </>
                   )}
