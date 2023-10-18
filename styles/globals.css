@@ -58,3 +58,8 @@ article>p {
 article>p>a {
     color: #9333ea;
 }
+
+.dropdown:is(:not(details)) .dropdown-content {
+    visibility: visible !important;
+    opacity: 1;
+}
