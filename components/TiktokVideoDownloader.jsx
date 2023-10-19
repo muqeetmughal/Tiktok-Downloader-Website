@@ -11,10 +11,10 @@ import toast from "react-hot-toast";
 const TiktokVideoDownloader = (props) => {
   const { homeComponent = false } = props;
 
-  const router = useRouter()
+  const router = useRouter();
   const [videoURL, setVideoURL] = useState(
     // "https://www.tiktok.com/@ubed_sk007/video/7274366546275732741"
-    ''
+    ""
   );
 
   const handlePaste = async () => {
@@ -22,15 +22,13 @@ const TiktokVideoDownloader = (props) => {
       const text = await navigator.clipboard.readText();
       setVideoURL(text);
     } catch (err) {
-      console.error('Failed to paste:', err);
+      console.error("Failed to paste:", err);
     }
   };
   function validateTikTokURL(url) {
+    var pattern =
+      /https:\/\/(?:vt\.tiktok\.com|www\.tiktok\.com\/@[\w.]+\/video)\/[0-9a-zA-Z]+\/?(\?|$)/;
 
-    var pattern = /^https:\/\/www\.tiktok\.com\/@[\w\d_\.]+\/video\/\d+(\?[\w\d_=&]+)?$/;
-                    
-                  
-  
     // Test the URL against the pattern
     return pattern.test(url);
   }
@@ -48,58 +46,48 @@ const TiktokVideoDownloader = (props) => {
   const videoData = video_mutation?.data?.data;
 
   async function handleDownload() {
-
-    if(validateTikTokURL(videoURL)){
+    if (validateTikTokURL(videoURL)) {
       if (homeComponent) {
-       const videoId = videoURL.match(/\/video\/(\d+)/);
-  
-       if (videoId && videoId[1]) {
-         router.push(`/download-tiktok-video-without-watermark?url=${videoURL}`)
-       } else {
-         toast.error("Invalid Video URL")
-         setVideoURL('')
-       }
-     } else {
-  
-       setVideoURL('')
-       video_mutation
-         .mutateAsync({
-           url: videoURL,
-         })
-         .then((resp) => {
-           console.log("Output", resp);
-         });
-     }
-      
-    }else{
-      toast.error("Invalid tiktok url")
+        const videoId = videoURL.match(
+          /https:\/\/(?:vt\.tiktok\.com|www\.tiktok\.com\/@[\w.]+\/video)\/[0-9a-zA-Z]+\/?(\?|$)/
+        );
 
+        if (videoId) {
+          router.push(
+            `/download-tiktok-video-without-watermark?url=${videoURL}`
+          );
+        } else {
+          toast.error("Invalid Video URL");
+          setVideoURL("");
+        }
+      } else {
+        setVideoURL("");
+        video_mutation
+          .mutateAsync({
+            url: videoURL,
+          })
+          .then((resp) => {
+            console.log("Output", resp);
+          });
+      }
+    } else {
+      toast.error("Invalid tiktok url");
     }
-
   }
 
-
-  useEffect(()=>{
-
-    if (router.query.url){
-      
-          video_mutation
-              .mutateAsync({
-                url: router.query.url,
-              })
-              .then((resp) => {
-                console.log("Output", resp);
-              });
-
+  useEffect(() => {
+    if (router.query.url) {
+      video_mutation
+        .mutateAsync({
+          url: router.query.url,
+        })
+        .then((resp) => {
+          console.log("Output", resp);
+        });
     }
 
-
-
-    console.log("Route changed",)
-  }, [router])
-
- 
-
+    console.log("Route changed");
+  }, [router]);
 
   return (
     <>
@@ -131,10 +119,7 @@ const TiktokVideoDownloader = (props) => {
                         <p className="lg:w-52 font-light">{videoData.desc}</p>
                       </div>
                       <div className="flex flex-col justify-items-start">
-                        <button
-                          className="btn btn-info mb-3"
-
-                        >
+                        <button className="btn btn-info mb-3">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -154,7 +139,7 @@ const TiktokVideoDownloader = (props) => {
                         </button>
                         <button
                           className="btn btn-info"
-                        // onClick={handleDownload}
+                          // onClick={handleDownload}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -192,7 +177,6 @@ const TiktokVideoDownloader = (props) => {
                             disabled={video_mutation.isLoading}
                             placeholder="Just insert a link"
                             className="input input-bordered w-full "
-
                           />
                           <button
                             className="btn btn-success gap-2"
@@ -217,30 +201,29 @@ const TiktokVideoDownloader = (props) => {
                               {i18n.t("paste")}
                             </div>
                           </button>
-                          
                         </div>
                         <button
-                            className="btn gap-2 my-2 lg:mx-auto btn-primary hover:btn-neutral  text-white"
-                            onClick={handleDownload}
-                            disabled={video_mutation.isLoading}
+                          className="btn gap-2 my-2 lg:mx-auto btn-primary hover:btn-neutral  text-white"
+                          onClick={handleDownload}
+                          disabled={video_mutation.isLoading}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-6 h-6"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              strokeWidth={1.5}
-                              stroke="currentColor"
-                              className="w-6 h-6"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-                              />
-                            </svg>
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                            />
+                          </svg>
 
-                              {i18n.t("download")}
-                          </button>
+                          {i18n.t("download")}
+                        </button>
                       </div>
                     </>
                   )}

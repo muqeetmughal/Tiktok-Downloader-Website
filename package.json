@@ -12,6 +12,7 @@
   "dependencies": {
     "@eisberg-labs/next-google-adsense": "^4.0.2",
     "axios": "^1.5.1",
+    "cheerio": "^1.0.0-rc.12",
     "cookie": "^0.5.0",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.2",

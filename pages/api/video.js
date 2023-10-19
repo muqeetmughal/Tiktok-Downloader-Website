@@ -3,15 +3,51 @@
 // }
 import axios from "axios";
 import fs from "fs";
+const cheerio = require("cheerio");
+
+async function getTikTokFullUrl(tiktokMobileURL) {
+  try {
+    // Make an HTTP GET request to the TikTok URL
+    const response = await axios.get(tiktokMobileURL);
+
+    if (response.status === 200) {
+      const html = response.data;
+
+      const $ = cheerio.load(html);
+
+      const ogURL = $('meta[property="og:url"]').attr("content");
+
+      return ogURL;
+    } else {
+      console.log("Failed to fetch the TikTok URL");
+    }
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
+}
+
+async function getVideoIDFromURL(url) {
+  const regex = /\/video\/(\d+)(?:\/|\?|$)/;
+  const videoID = await url.match(regex)[1];
+  return videoID;
+}
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const videoURL = req.body.url;
-    const regex = /\/video\/(\d+)/;
-    const match = videoURL.match(regex);
+    let videoURL = req.body.url;
 
-    if (match) {
-      const videoId = match[1];
-      let api_url = `https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/feed/?aweme_id=${videoId}`;
+    const regexPattern =
+      /^https:\/\/www\.tiktok\.com\/@[^/]+\/video\/\d+\??[^/]*$/;
+
+    const isLongVideoURLMatch = regexPattern.test(videoURL);
+
+    if (!isLongVideoURLMatch) {
+      videoURL = await getTikTokFullUrl(videoURL);
+    }
+
+    const videoID = await getVideoIDFromURL(videoURL);
+
+    if (videoID) {
+      let api_url = `https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/feed/?aweme_id=${videoID}`;
       const response = await axios.get(api_url);
       const data = await response.data.aweme_list[0];
       res.status(200).json(data);
@@ -22,7 +58,6 @@ export default async function handler(req, res) {
     res.status(401).json({ success: false, message: "Something went wrong" });
   }
 }
-
 
 // import { setCookie } from 'cookie';
 
