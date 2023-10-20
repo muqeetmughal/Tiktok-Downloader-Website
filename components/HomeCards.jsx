@@ -32,7 +32,7 @@ const HomeCards = () => {
                         return (
 
 
-                            <div className="bg-white shadow-md p-4 rounded-lg my-2 text-center" key={index}>
+                            <div className=" shadow-md p-4 rounded-lg my-2 text-center" key={index}>
                                 <div style={{ width: "200px", height: "100px" }}>
                                     <Image
                                         style={{ margin: "auto" }}

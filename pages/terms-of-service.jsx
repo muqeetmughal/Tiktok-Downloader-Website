@@ -4,26 +4,26 @@ import Breadcrumbs from '../components/Breadcrumbs'
 const TermsOfService = () => {
   return (
     <>
-     <Breadcrumbs pageTitle="Terms of Service" urls={[
-      {
-        title:"Home",
-        url: "/",
-        isActive:false
-      },
-      {
-        title:"Terms of Service",
-        url: "/terms-of-service",
-        isActive:true
+      <Breadcrumbs pageTitle="Terms of Service" urls={[
+        {
+          title: "Home",
+          url: "/",
+          isActive: false
+        },
+        {
+          title: "Terms of Service",
+          url: "/terms-of-service",
+          isActive: true
 
-      }
-    ]}/>
-      <div className="w-full h-full sm:max-w-screen-sm sm:mx-auto">
+        }
+      ]} />
+      <div className="w-full h-full sm:max-w-screen-sm sm:mx-auto my-10">
 
         <div className="card my-1 shadow-xl">
-          <div className="card-body">
-            <h2 className="text-lg font-bold mb-4">Terms and Conditions</h2>
+          <div className="card-body text-justify">
+            <h2 className="text-2xl font-bold mb-4 text-gray-600">Terms & Conditions TT-Downloader</h2>
             <p>Welcome to freepasswordgenerator.app. By accessing our website, you agree to comply with the following terms and conditions:</p>
-            <ol className="list-decimal ml-4 my-4">
+            <ul className="list-decimal ml-4 my-4">
               <li>The content of the pages of this website is for your general information and use only. It is subject to change without notice.</li>
               <li>This website uses cookies to monitor browsing preferences. If you do allow cookies to be used, the following personal information may be stored by us for use by third parties: [insert list of information].</li>
               <li>Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.</li>
@@ -33,7 +33,7 @@ const TermsOfService = () => {
               <li>Unauthorized use of this website may give rise to a claim for damages and/or be a criminal offence.</li>
               <li>From time to time, this website may also include links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content of the linked website(s).</li>
               <li>Your use of this website and any dispute arising out of such use of the website is subject to the laws of [insert governing law].</li>
-            </ol>
+            </ul>
           </div>
         </div>
       </div>
