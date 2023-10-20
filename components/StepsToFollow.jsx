@@ -3,14 +3,14 @@ import React from 'react'
 const StepsToFollow = () => {
     const ways = [
         {
-            ways: "- play a video that you want to save to your mobile device, using the TT app"
+            ways: "- play a video that you want to save to your mobile device, using the ttdownloader.io app"
         },
         {
             ways: `- tap "Share" (the arrow button on top of a chosen video), and then tap "Copy link`
 
         },
         {
-            ways: `- go back to sss TikTok download video service and paste the link in the text field on the page and tap on the "Save" button`
+            ways: `- go back to  ttdownloader.io service and paste the link in the text field on the page and tap on the "Save" button`
         },
 
     ]

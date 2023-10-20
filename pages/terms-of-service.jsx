@@ -22,7 +22,7 @@ const TermsOfService = () => {
         <div className="card my-1 shadow-xl">
           <div className="card-body text-justify">
             <h2 className="text-2xl font-bold mb-4 text-gray-600">Terms & Conditions TT-Downloader</h2>
-            <p>Welcome to freepasswordgenerator.app. By accessing our website, you agree to comply with the following terms and conditions:</p>
+            <p>Welcome to ttdownloader.io. By accessing our website, you agree to comply with the following terms and conditions:</p>
             <ul className="list-decimal ml-4 my-4">
               <li>The content of the pages of this website is for your general information and use only. It is subject to change without notice.</li>
               <li>This website uses cookies to monitor browsing preferences. If you do allow cookies to be used, the following personal information may be stored by us for use by third parties: [insert list of information].</li>

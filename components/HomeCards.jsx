@@ -14,12 +14,12 @@ const HomeCards = () => {
         {
             image: watermark,
             heading: "No Watermark!",
-            text: "TikTok download without watermark, remove a TT logo."
+            text: "Download a Tiktok video without watermark"
         },
         {
             image: audio,
             heading: "MP4 and MP3",
-            text: "Save videos in hd quality, MP4 file format or convert to audio MP3."
+            text: "convert the video into Mp3 , Save the video in Mp4 & HD"
         },
     ]
 

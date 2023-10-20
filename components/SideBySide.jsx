@@ -11,7 +11,7 @@ const SideBySide = () => {
                     <h1 className='text-xl font-bold text-purple-600'>DOWNLOAD TIKTOK</h1>
                     <p>
                         If you want to download TikTok video on Android mobile phone, you need to launch the TikTok app and find the video you want to save. When you are on the video page, you will see the share button on the right side of the screen. Click on it and select Copy Link.</p>
-                    <p>Then open our TikTok video downloader page and paste it into the input field at the top of the page. Click the Download TikTok video button to get the link. TikTok watermark remover will save them without logo.
+                    <p>Then open our  ttdownloader.io page and paste it into the input field at the top of the page. Click the Download TikTok video button to get the link. TikTok watermark remover will save them without logo.
 
                     </p>
 

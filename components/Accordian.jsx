@@ -19,15 +19,15 @@ const Accordian = () => {
         },
         {
             title: "Do I need to install extensions to use TikTok video downloader?",
-            content: "No. To save TT and remove TikTok watermark online, you just need a link. Paste it into the input field and select the appropriate format for conversion. Our TikTok watermark remover app will do the rest.",
+            content: "No. To save tiktok and remove TikTok watermark online, you just need a link. Paste it into the input field and select the appropriate format for conversion. Our TikTok watermark remover app will do the rest.",
         },
         {
             title: "Where are TikTok videos saved after downloading?",
             content: "When you save from TikTok without trademark, files are usually saved to your default location. In your browser settings, you can change and manually select the destination folder for your files.",
         },
         {
-            title: "Do I need to have a TT account to download TikTok video?",
-            content: `No, you do not need to have a TT account. You can launch download TikTok no watermark process when you have a link to it, just paste it into the input field at the top of the page and click "Download". Our TikTok download service will remove watermark from TikTok and the video will be ready to use in a few seconds.`,
+            title: "Do I need to have a ttdownloader.io account to download TikTok video?",
+            content: `No, you do not need to have a ttdownloader.io account. You can launch download TikTok no watermark process when you have a link to it, just paste it into the input field at the top of the page and click "Download". Our TikTok download service will remove watermark from TikTok and the video will be ready to use in a few seconds.`,
         },
     ];
     return (
