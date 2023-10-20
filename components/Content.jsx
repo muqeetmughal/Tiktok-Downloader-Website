@@ -4,6 +4,7 @@ import Image from "next/image";
 import Accordian from "./Accordian";
 import StepsToFollow from "./StepsToFollow";
 import HomeCards from "./HomeCards";
+import SideBySide from "./SideBySide";
 const Content = () => {
 
 
@@ -13,6 +14,8 @@ const Content = () => {
     <>
       <HomeCards />
       <StepsToFollow />
+
+      <SideBySide/>
       <Accordian />
 
 
