@@ -6,6 +6,10 @@
     margin-top: 0 !important;
 } */
 
+body{
+    font-family: 'Dosis', sans-serif;
+}
+
 article>h1.wp-block-heading {
     font-size: 3rem;
     line-height: 1;
