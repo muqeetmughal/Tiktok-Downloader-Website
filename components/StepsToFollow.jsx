@@ -19,7 +19,7 @@ const StepsToFollow = () => {
         <>
 
             <div className="p-2">
-                <h1 className="text-2xl font-bold text-gray-600 pb-4">STEPS TO BE FOLLOWED</h1>
+                <h1 className="text-2xl font-bold text-purple-600 pb-4">STEPS TO BE FOLLOWED</h1>
 
                 <ul className="p-4 card my-1 shadow-xl bg-gradient-to-t from-purple-600 to-pink-500">
                     {ways.map((item, index) => {
