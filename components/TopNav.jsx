@@ -21,14 +21,14 @@ const navMenu = [
     name: "Contact",
     link: "/contact",
   },
-  {
-    name: "Privacy Policy",
-    link: "/privacy-policy",
-  },
-  {
-    name: "Terms of Service",
-    link: "/terms-of-service",
-  },
+  // {
+  //   name: "Privacy Policy",
+  //   link: "/privacy-policy",
+  // },
+  // {
+  //   name: "Terms of Service",
+  //   link: "/terms-of-service",
+  // },
   // {
   //   name: "About",
   //   link: "/about",

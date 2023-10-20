@@ -9,9 +9,9 @@ const Footer = () => {
             <footer className="footer p-10 bg-base-200 text-base-content">
                 <div>
                     <span className="footer-title">Pages</span>
-                    <Link href={"/contact"} className="link link-hover">Contact & Report Abuse</Link>
-                    <Link href={"/terms-of-service"} className="link link-hover">Terms of Service</Link>
                     <Link href={"/privacy-policy"} className="link link-hover">Privacy Policy</Link>
+                    <Link href={"/terms-of-service"} className="link link-hover">Terms of Service</Link>
+                    {/* <Link href={"/privacy-policy"} className="link link-hover">Privacy Policy</Link> */}
                 </div>
                 <div>
                     <span className="footer-title">Languages</span>
