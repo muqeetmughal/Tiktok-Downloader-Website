@@ -6,25 +6,17 @@ import ThemeToggler from "./ThemeToggler";
 
 const navMenu = [
   {
-    name: "Home",
-    link: "/",
+    name: "Download Tiktok MP3",
+    link: "/download-tiktok-mp3",
   },
   {
-    name: "Download Tiktok Video",
-    link: "/download-tiktok-video-without-watermark",
+    name: "Download Tiktok Story",
+    link: "/download-tiktok-story",
   },
   {
-    name: "Blog",
-    link: "/blog",
-  },
-  {
-    name: "Contact",
-    link: "/contact",
-  },
-  // {
-  //   name: "Privacy Policy",
-  //   link: "/privacy-policy",
-  // },
+    name: "How to save tiktok video?",
+    link: "/how-to-download-tiktok-video",
+  }
   // {
   //   name: "Terms of Service",
   //   link: "/terms-of-service",

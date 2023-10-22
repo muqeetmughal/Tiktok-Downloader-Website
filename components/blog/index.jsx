@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import Link from "next/link";
-import Breadcrumbs from "../../components/Breadcrumbs";
+import Breadcrumbs from "../Breadcrumbs";
 import { render_image } from "../../utils/blog";
 
 const BlogPage = ({ blogs }) => {
