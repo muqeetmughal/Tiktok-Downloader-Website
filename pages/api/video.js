@@ -1,6 +1,3 @@
-// export default function handler(req, res) {
-//   res.status(200).json({ name: "John Doe" });
-// }
 import axios from "axios";
 import fs from "fs";
 const cheerio = require("cheerio");

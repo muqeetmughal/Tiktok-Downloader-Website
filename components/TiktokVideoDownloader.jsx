@@ -52,7 +52,6 @@ const TiktokVideoDownloader = (props) => {
       );
 
       if (videoId) {
-        setVideoURL("");
         video_mutation
           .mutateAsync({
             url: videoURL,
@@ -62,7 +61,7 @@ const TiktokVideoDownloader = (props) => {
           });
       } else {
         toast.error("Invalid Video URL");
-        setVideoURL("");
+        // setVideoURL("");
       }
     } else {
       toast.error("Invalid tiktok url");
@@ -83,6 +82,21 @@ const TiktokVideoDownloader = (props) => {
   //   console.log("Route changed");
   // }, [router, video_mutation]);
 
+  // function downloadVideo(videoURL) {
+  //   try {
+  //     axios.get(`/api/download`, {
+  //       params: {
+  //         url: videoURL,
+  //       },
+  //     });
+
+  //     alert("Downloaded successfully!");
+  //   } catch (error) {
+  //     console.error(error);
+  //     alert("Error downloading the video.");
+  //   }
+  // }
+
   return (
     <>
       <section>
@@ -97,8 +111,67 @@ const TiktokVideoDownloader = (props) => {
                 TikTok video downloader tool helping you download TikTok video
                 without watermark
               </p>
+              <>
+                <div className="form-control">
+                  <div className="input-group">
+                    <input
+                      onChange={handleInputChange}
+                      type="text"
+                      value={videoURL}
+                      disabled={video_mutation.isLoading}
+                      placeholder="Just insert a link"
+                      className="input input-bordered w-full "
+                    />
+                    <button
+                      className="btn btn-success gap-2"
+                      onClick={handlePaste}
+                      disabled={video_mutation.isLoading}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184"
+                        />
+                      </svg>
+                      <div className="hidden sm:block">{i18n.t("paste")}</div>
+                    </button>
+                  </div>
+                  <button
+                    className="btn gap-2 my-2 lg:mx-auto btn-primary hover:btn-neutral  text-white"
+                    onClick={handleDownload}
+                    disabled={video_mutation.isLoading}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                      />
+                    </svg>
 
-              {video_mutation.isSuccess ? (
+                    {i18n.t("download")}
+                  </button>
+                </div>
+              </>
+
+              {video_mutation.isLoading && <LoadingSkeleton />}
+
+              {video_mutation.isSuccess && (
                 <>
                   <div className="hero bg-base-200 mt-6 shadow-2xl">
                     <div className="hero-content flex-col lg:flex-row">
@@ -118,9 +191,13 @@ const TiktokVideoDownloader = (props) => {
                             return (
                               <Link
                                 target="_blank"
-                                href={url}
+                                href={`/api/download?url=${url}`}
                                 key={index}
                                 className="btn btn-info mb-3"
+                                // onClick={(e) => {
+                                //   e.preventDefault();
+                                //   downloadVideo(url);
+                                // }}
                               >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -164,72 +241,6 @@ const TiktokVideoDownloader = (props) => {
                       </div>
                     </div>
                   </div>
-                </>
-              ) : (
-                <>
-                  {video_mutation.isLoading ? (
-                    <LoadingSkeleton />
-                  ) : (
-                    <>
-                      <div className="form-control">
-                        <div className="input-group">
-                          <input
-                            onChange={handleInputChange}
-                            type="text"
-                            value={videoURL}
-                            disabled={video_mutation.isLoading}
-                            placeholder="Just insert a link"
-                            className="input input-bordered w-full "
-                          />
-                          <button
-                            className="btn btn-success gap-2"
-                            onClick={handlePaste}
-                            disabled={video_mutation.isLoading}
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              strokeWidth={1.5}
-                              stroke="currentColor"
-                              className="w-6 h-6"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184"
-                              />
-                            </svg>
-                            <div className="hidden sm:block">
-                              {i18n.t("paste")}
-                            </div>
-                          </button>
-                        </div>
-                        <button
-                          className="btn gap-2 my-2 lg:mx-auto btn-primary hover:btn-neutral  text-white"
-                          onClick={handleDownload}
-                          disabled={video_mutation.isLoading}
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-6 h-6"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-                            />
-                          </svg>
-
-                          {i18n.t("download")}
-                        </button>
-                      </div>
-                    </>
-                  )}
                 </>
               )}
             </div>
