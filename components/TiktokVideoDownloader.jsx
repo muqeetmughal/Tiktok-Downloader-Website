@@ -43,7 +43,6 @@ const TiktokVideoDownloader = (props) => {
   //     return axios.get(`/api/ttdownload/${id}`);
   //   });
   const videoData = video_mutation?.data?.data;
-  console.log(videoData?.video?.play_addr?.url_list);
 
   async function handleDownload() {
     if (validateTikTokURL(videoURL)) {
@@ -173,17 +172,21 @@ const TiktokVideoDownloader = (props) => {
 
               {video_mutation.isSuccess && (
                 <>
-                  <div className="hero bg-base-200 mt-6 shadow-2xl">
-                    <div className="hero-content flex-col lg:flex-row">
+                  <div
+                    className={`hero mt-6 shadow-2xl border-purple-400 rounded-2xl border-2 bg-[${videoData?.video?.cover?.url_list[0]}]`}
+                  >
+                    <div className={`hero-content flex-col lg:flex-row`}>
                       <img
                         src={videoData.author.avatar_thumb.url_list[0]}
                         className="max-w-sm rounded-lg shadow-2xl"
                       />
                       <div className="flex flex-col text-justify">
-                        <h2 className="flex lg:justify-start justify-center font-bold">
+                        <h2 className="flex lg:justify-start justify-center font-bold text-slate-900">
                           {videoData.author.nickname}
                         </h2>
-                        <p className="lg:w-52 font-light">{videoData.desc}</p>
+                        <p className="lg:w-52 text-slate-900">
+                          {videoData.desc}
+                        </p>
                       </div>
                       <div className="flex flex-col justify-items-start">
                         {videoData?.video?.play_addr?.url_list.map(

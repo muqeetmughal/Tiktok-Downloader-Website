@@ -44,23 +44,25 @@ export default async function handler(req, res) {
     const videoID = await getVideoIDFromURL(videoURL);
 
     if (videoID) {
-      const referrer = req.headers.referer || req.headers.origin || "";
-      const allowedReferrers = [
-        "http://localhost:3300",
-        "https://www.ttdownloader.io",
-      ];
-      if (
-        allowedReferrers.some((trustedReferrer) =>
-          referrer.includes(trustedReferrer)
-        )
-      ) {
-        let api_url = `https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/feed/?aweme_id=${videoID}`;
-        const response = await axios.get(api_url);
-        const data = await response.data.aweme_list[0];
-        res.status(200).json(data);
-      } else {
-        res.status(401).json("Access Denied");
-      }
+      // const referrer = req.headers.referer || req.headers.origin || "";
+      // const allowedReferrers = [
+      //   "http://localhost:3300",
+      //   "https://www.ttdownloader.io",
+      //   "https://www.ttdownloader.io/",
+      // ];
+      // if (
+      //   allowedReferrers.some((trustedReferrer) =>
+      //     referrer.includes(trustedReferrer)
+      //   )
+      // ) {
+      let api_url = `https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/feed/?aweme_id=${videoID}`;
+      const response = await axios.get(api_url);
+      const data = await response.data.aweme_list[0];
+      res.status(200).json(data);
+      // }
+      // else {
+      //   res.status(401).json("Access Denied");
+      // }
     } else {
       res.status(200).json({ success: false, message: "Invalid Tiktok URL" });
     }
