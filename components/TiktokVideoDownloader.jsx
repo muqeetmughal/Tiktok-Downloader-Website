@@ -67,6 +67,46 @@ const TiktokVideoDownloader = (props) => {
     }
   }
 
+  // const download_progress_query = useQuery(['downloadProgress', videoID], ()=>{
+  //   return 
+  // })
+
+  const handleDownloadClick = async (videoURL) => {
+    try {
+      fetch(videoURL)
+        .then((response) => {
+          const video_datetime = Math.floor(Date.now() / 1000);
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const contentDisposition = response.headers.get(
+            "content-disposition"
+          );
+          const filename = contentDisposition
+            ? contentDisposition.split("filename=")[1]
+            : `ttdownloader.io_${video_datetime}.mp4`; // Set the desired default filename.
+
+          response.arrayBuffer().then((data) => {
+            const blob = new Blob([data], { type: "video/mp4" }); // Set the appropriate MIME type.
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = filename;
+            a.style.display = "none";
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url); // Clean up the object URL to free up memory.
+            document.body.removeChild(a);
+          });
+        })
+        .catch((error) => {
+          console.error("Error downloading the video:", error);
+        });
+    } catch (error) {
+      console.error("Error downloading the video:", error);
+    }
+  };
+
   // useEffect(() => {
   //   if (router.query.url) {
   //     video_mutation
@@ -193,9 +233,10 @@ const TiktokVideoDownloader = (props) => {
                           .filter((url) => !url.includes("tiktokv.com"))
                           .map((url, index) => {
                             return (
-                              <Link
-                                target="_blank"
-                                href={`/api/download?url=${url}`}
+                              <div
+                                onClick={() => handleDownloadClick(url)}
+                                // target="_blank"
+                                // href={`/api/download?url=${url}`}
                                 key={index}
                                 className="btn btn-info mb-3"
                                 // onClick={(e) => {
@@ -219,7 +260,7 @@ const TiktokVideoDownloader = (props) => {
                                 </svg>
                                 {/* {i18n.t("download")} */}
                                 Without Watermark (Link {(index += 1)})
-                              </Link>
+                              </div>
                             );
                           })}
                         <Link href={"/mp3"} className="btn btn-success">

@@ -8,7 +8,6 @@ import fs from "fs";
 export default async function handler(req, res) {
   try {
     const videoURL = req.query.url; // Get the URL from the query parameters
-    console.log("Recieved video URL: " + videoURL);
     const response = await axios.get(videoURL, { responseType: "stream" });
     res.setHeader("Content-Type", "video/mp4");
     res.setHeader(
