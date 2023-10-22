@@ -38,17 +38,17 @@ const navMenu = [
   // },
 ];
 const TopNav = () => {
-  const { locale, locales, asPath } = useRouter();
-  // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  // const { locale, locales, asPath } = useRouter();
+  // // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    // setIsDropdownOpen(!isDropdownOpen);
-    navbarRef.current.classList.toggle("hidden");
-    navbarRef.current.classList.toggle("block");
-  };
-  const navbarRef = useRef(null);
+  // const toggleDropdown = () => {
+  //   // setIsDropdownOpen(!isDropdownOpen);
+  //   navbarRef.current.classList.toggle("hidden");
+  //   navbarRef.current.classList.toggle("block");
+  // };
+  // const navbarRef = useRef(null);
 
-  const router = useRouter();
+  // const router = useRouter();
 
   // function handleMobileHamburgerClick (){
   // if ( navbarRef.current.style.visibility='hidden'){
@@ -65,19 +65,19 @@ const TopNav = () => {
   // }
 
   // Use the router.events to listen for route changes
-  React.useEffect(() => {
-    const handleRouteChange = (url) => {
-      if (navbarRef.current) {
-        navbarRef.current.classList.toggle("hidden");
-        navbarRef.current.classList.toggle("block");
-      }
-    };
+  // React.useEffect(() => {
+  //   const handleRouteChange = (url) => {
+  //     if (navbarRef.current) {
+  //       navbarRef.current.classList.toggle("hidden");
+  //       navbarRef.current.classList.toggle("block");
+  //     }
+  //   };
 
-    router.events.on("routeChangeStart", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeStart", handleRouteChange);
-    };
-  });
+  //   router.events.on("routeChangeStart", handleRouteChange);
+  //   return () => {
+  //     router.events.off("routeChangeStart", handleRouteChange);
+  //   };
+  // });
   return (
     <>
       {/* <div className="navbar bg-base-100">
