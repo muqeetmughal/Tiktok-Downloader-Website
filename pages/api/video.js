@@ -47,7 +47,7 @@ export default async function handler(req, res) {
       const referrer = req.headers.referer || req.headers.origin || "";
       const allowedReferrers = [
         "http://localhost:3300",
-        // "https://www.ttdownloader.io",
+        "https://www.ttdownloader.io",
       ];
       if (
         allowedReferrers.some((trustedReferrer) =>
