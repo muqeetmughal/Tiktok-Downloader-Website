@@ -15,6 +15,7 @@ const TiktokVideoDownloader = (props) => {
     // "https://www.tiktok.com/@ubed_sk007/video/7274366546275732741"
     ""
   );
+  const [downloadURL, setDownloadURL] = useState(null);
 
   const handlePaste = async () => {
     try {
@@ -68,44 +69,92 @@ const TiktokVideoDownloader = (props) => {
   }
 
   // const download_progress_query = useQuery(['downloadProgress', videoID], ()=>{
-  //   return 
+  //   return
   // })
 
-  const handleDownloadClick = async (videoURL) => {
-    try {
-      fetch(videoURL)
-        .then((response) => {
-          const video_datetime = Math.floor(Date.now() / 1000);
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          const contentDisposition = response.headers.get(
-            "content-disposition"
-          );
-          const filename = contentDisposition
-            ? contentDisposition.split("filename=")[1]
-            : `ttdownloader.io_${video_datetime}.mp4`; // Set the desired default filename.
+  // const fetchVideoData = async () => {
+  //   const response = await fetch(videoURL);
+  //   if (!response.ok) {
+  //     throw new Error('Network response was not ok');
+  //   }
 
-          response.arrayBuffer().then((data) => {
-            const blob = new Blob([data], { type: "video/mp4" }); // Set the appropriate MIME type.
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = filename;
-            a.style.display = "none";
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url); // Clean up the object URL to free up memory.
-            document.body.removeChild(a);
-          });
-        })
-        .catch((error) => {
-          console.error("Error downloading the video:", error);
-        });
-    } catch (error) {
-      console.error("Error downloading the video:", error);
+  //   const contentDisposition = response.headers.get('content-disposition');
+  //   const filename = contentDisposition
+  //     ? contentDisposition.split('filename=')[1]
+  //     : `ttdownloader.io_${Math.floor(Date.now() / 1000)}.mp4`;
+
+  //   const data = await response.arrayBuffer();
+  //   return { data, filename };
+  // };
+
+  const download_video_query = useQuery(
+    ["video", downloadURL],
+    async () => {
+      try {
+        const response = await fetch(downloadURL);
+        const video_datetime = Math.floor(Date.now() / 1000);
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const contentDisposition = response.headers.get("content-disposition");
+        const filename = contentDisposition
+          ? contentDisposition.split("filename=")[1]
+          : `ttdownloader.io_${video_datetime}.mp4`; // Set the desired default filename.
+
+        const data = await response.arrayBuffer();
+        const blob = new Blob([data], { type: "video/mp4" }); // Set the appropriate MIME type.
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        a.style.display = "none";
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url); // Clean up the object URL to free up memory.
+        document.body.removeChild(a);
+
+        setDownloadURL(null); // You can set isLoading to false here
+      } catch (error) {
+        // Handle any errors, and you may set isLoading to false here if needed.
+        console.error("Download failed:", error);
+        setDownloadURL(null); // Set isLoading to false in case of an error.
+      }
+    },
+    {
+      // onSuccess: (response) => {
+      //   const video_datetime = Math.floor(Date.now() / 1000);
+      //   if (!response.ok) {
+      //     throw new Error("Network response was not ok");
+      //   }
+      //   const contentDisposition = response.headers.get("content-disposition");
+      //   const filename = contentDisposition
+      //     ? contentDisposition.split("filename=")[1]
+      //     : `ttdownloader.io_${video_datetime}.mp4`; // Set the desired default filename.
+
+      //   response.arrayBuffer().then((data) => {
+      //     const blob = new Blob([data], { type: "video/mp4" }); // Set the appropriate MIME type.
+      //     const url = window.URL.createObjectURL(blob);
+      //     const a = document.createElement("a");
+      //     a.href = url;
+      //     a.download = filename;
+      //     a.style.display = "none";
+      //     document.body.appendChild(a);
+      //     a.click();
+      //     window.URL.revokeObjectURL(url); // Clean up the object URL to free up memory.
+      //     document.body.removeChild(a);
+
+      //     setDownloadURL(null);
+      //   });
+      // },
+      enabled: downloadURL !== null,
     }
-  };
+  );
+
+  // const handleDownloadClick = async (download_url) => {
+  //   setDownloadURL(download_url);
+  // };
 
   // useEffect(() => {
   //   if (router.query.url) {
@@ -150,6 +199,8 @@ const TiktokVideoDownloader = (props) => {
                 TikTok video downloader tool helping you download TikTok video
                 without watermark
               </p>
+
+              <p>{download_video_query.isLoading && <LoadingSkeleton />}</p>
               <>
                 <div className="form-control">
                   <div className="input-group">
@@ -233,8 +284,8 @@ const TiktokVideoDownloader = (props) => {
                           .filter((url) => !url.includes("tiktokv.com"))
                           .map((url, index) => {
                             return (
-                              <div
-                                onClick={() => handleDownloadClick(url)}
+                              <button
+                                onClick={() => setDownloadURL(url)}
                                 // target="_blank"
                                 // href={`/api/download?url=${url}`}
                                 key={index}
@@ -260,7 +311,7 @@ const TiktokVideoDownloader = (props) => {
                                 </svg>
                                 {/* {i18n.t("download")} */}
                                 Without Watermark (Link {(index += 1)})
-                              </div>
+                              </button>
                             );
                           })}
                         <Link href={"/mp3"} className="btn btn-success">
