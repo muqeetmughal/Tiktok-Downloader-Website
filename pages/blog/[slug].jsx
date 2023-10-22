@@ -3,7 +3,6 @@ import Image from "next/image";
 import React from "react";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import { render_image } from "../../utils/blog";
-import "./BlogDetail.module.css";
 const BlogDetail = ({ blog }) => {
   return (
     <>

@@ -81,7 +81,7 @@ const TopNav = () => {
       
       router.events.off('routeChangeStart', handleRouteChange);
     };
-  }, []);
+  });
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">

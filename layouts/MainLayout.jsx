@@ -16,13 +16,12 @@ const MainLayout = (props) => {
 
   return (
     <>
-      <TopNav />
       <QueryClientProvider client={queryClient}>
+        <TopNav />
         <ContentLayout>{props.children}</ContentLayout>
         <ReactQueryDevtools initialIsOpen={false} />
+        <Footer />
       </QueryClientProvider>
-
-      <Footer />
     </>
   );
 };
