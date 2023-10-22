@@ -189,8 +189,9 @@ const TiktokVideoDownloader = (props) => {
                         </p>
                       </div>
                       <div className="flex flex-col justify-items-start">
-                        {videoData?.video?.play_addr?.url_list.map(
-                          (url, index) => {
+                        {videoData?.video?.play_addr?.url_list
+                          .filter((url) => !url.includes("tiktokv.com"))
+                          .map((url, index) => {
                             return (
                               <Link
                                 target="_blank"
@@ -220,9 +221,7 @@ const TiktokVideoDownloader = (props) => {
                                 Without Watermark (Link {(index += 1)})
                               </Link>
                             );
-                          }
-                        )}
-
+                          })}
                         <Link href={"/mp3"} className="btn btn-success">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"

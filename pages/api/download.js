@@ -21,3 +21,9 @@ export default async function handler(req, res) {
     res.status(500).end("Error downloading the video.");
   }
 }
+
+export const config = {
+  api: {
+    responseLimit: false,
+  },
+};
