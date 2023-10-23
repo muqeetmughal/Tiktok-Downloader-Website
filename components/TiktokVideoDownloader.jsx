@@ -261,7 +261,7 @@ const TiktokVideoDownloader = (props) => {
 
               {video_mutation.isLoading && <LoadingSkeleton />}
 
-              {video_mutation.isSuccess && (
+              {video_mutation.isSuccess && videoURL && (
                 <>
                   <div
                     className={`hero mt-6 shadow-2xl border-purple-400 rounded-2xl border-2 bg-[${videoData?.video?.cover?.url_list[0]}]`}
