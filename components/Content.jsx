@@ -21,40 +21,6 @@ const Content = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <div className="container">
         <div className="lg:flex w-full">
           <div className="w-1/2">
