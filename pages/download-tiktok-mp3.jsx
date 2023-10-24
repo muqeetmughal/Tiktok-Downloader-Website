@@ -71,13 +71,13 @@ const TiktokMp3Downloaad = () => {
 
 
 
-            <div className="max-w-full mx-auto p-2 py-20">
+            <div className="max-w-full mx-auto p-2 py-8">
               <h1 className="text-2xl font-bold text-gray-600 pb-4">FAQs</h1>
               {accordionData.map((item, index) => (
                 <div key={index} className="mb-4">
                   <button
                     onClick={() => toggleAccordion(index)}
-                    className="w-full p-4 text-left bg-gray-200 hover:bg-gray-300 text-lg font-semibold flex justify-between"
+                    className="w-full p-4 text-left bg-gray-200 hover:bg-gray-300 text-md font-semibold flex justify-between"
                   >
                     {item.title}
                     <span className={openIndex === index ? 'transform rotate-180' : ''}>&#9660;</span>

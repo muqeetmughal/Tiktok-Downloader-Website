@@ -5,6 +5,9 @@ const SideBySide = () => {
   return (
     <>
       <div className="lg:flex gap-4">
+        <div className="lg:w-1/2 pt-4">
+          <Image src={image} alt="Your Image" className="h-auto p-10 " />
+        </div>
         <div className="lg:w-1/2 text-justify p-4">
           <h1 className="text-xl font-bold text-purple-600">DOWNLOAD TIKTOK</h1>
           <p>
@@ -19,9 +22,7 @@ const SideBySide = () => {
             get the link. TikTok watermark remover will save them without logo.
           </p>
         </div>
-        <div className="lg:w-1/2 pt-4">
-          <Image src={image} alt="Your Image" className="w-full h-auto p-10" />
-        </div>
+
       </div>
     </>
   );

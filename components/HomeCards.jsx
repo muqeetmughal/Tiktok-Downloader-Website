@@ -24,7 +24,7 @@ const HomeCards = () => {
 
   return (
     <>
-      <div className="lg:flex justify-center p-2">
+      <div className="lg:flex justify-center p-4">
         <div className="lg:flex lg:space-x-4 my-10 ">
           {cardData.map((item, index) => {
             return (
@@ -32,7 +32,7 @@ const HomeCards = () => {
                 className=" shadow-md p-4 rounded-lg my-2 text-center"
                 key={index}
               >
-                <div style={{ width: "200px", height: "100px" }}>
+                <div style={{ width: "200px", height: "100px",margin:"auto" }}>
                   <Image
                     style={{ margin: "auto" }}
                     src={item.image}

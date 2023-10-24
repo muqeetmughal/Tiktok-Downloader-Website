@@ -18,7 +18,7 @@ const StepsToFollow = () => {
     return (
         <>
 
-            <div className="p-2">
+            <div className="p-4">
                 <h1 className="text-2xl font-bold text-purple-600 pb-4">STEPS TO BE FOLLOWED</h1>
 
                 <ul className="p-4 card my-1 shadow-xl bg-gradient-to-t from-purple-600 to-pink-500">
