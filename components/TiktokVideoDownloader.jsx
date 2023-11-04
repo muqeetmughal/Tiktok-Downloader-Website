@@ -129,6 +129,19 @@ const TiktokVideoDownloader = (props) => {
     }
   );
 
+  useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      e.preventDefault();
+      e.returnValue = ""; // This line is needed for some older browsers
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
   const render_widget = () => {
     if (!videoData && video_mutation.isIdle) {
       return (
@@ -274,7 +287,6 @@ const TiktokVideoDownloader = (props) => {
               </div>
             </div>
           </div>
-
         </>
       );
     } else if (download_video_query.isLoading) {
