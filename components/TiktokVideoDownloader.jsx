@@ -275,7 +275,6 @@ const TiktokVideoDownloader = (props) => {
             </div>
           </div>
 
-          <button className="btn btn-info mb-3">Download Again</button>
         </>
       );
     } else if (download_video_query.isLoading) {
