@@ -62,3 +62,6 @@ Terms of Service: Clearly define your website's terms of service and enforce the
 It's important to note that determined scrapers may still find ways to bypass these measures. Therefore, it's crucial to regularly review and update your security measures based on the evolving threat landscape.
 
 Remember to strike a balance between protecting your data and ensuring that legitimate users can access your content. Some measures, such as strict rate limiting, can potentially impact user experience if not implemented carefully.
+
+
+https://www.tiktok.com/oembed?url=https://www.tiktok.com/@tiktok/video/7289949893005921582

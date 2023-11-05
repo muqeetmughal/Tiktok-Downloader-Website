@@ -16,7 +16,7 @@ const navMenu = [
   {
     name: "How to save tiktok video?",
     link: "/how-to-download-tiktok-video",
-  }
+  },
   // {
   //   name: "Terms of Service",
   //   link: "/terms-of-service",

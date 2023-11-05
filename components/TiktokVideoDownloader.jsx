@@ -266,7 +266,11 @@ const TiktokVideoDownloader = (props) => {
                       </a>
                     );
                   })}
-                <Link href={"/mp3"} className="btn btn-success">
+                <Link
+                  href={videoData.music.play_url.uri}
+                  download="audio.mp3"
+                  className="btn btn-success"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
