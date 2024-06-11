@@ -30,35 +30,42 @@ async function getVideoIDFromURL(url) {
 }
 export default async function handler(req, res) {
   if (req.method === "POST") {
+    // let videoURL = req.query.url;
     let videoURL = req.body.url;
 
-    const regexPattern =
-      /^https:\/\/www\.tiktok\.com\/@[^/]+\/video\/\d+\??[^/]*$/;
+    // const regexPattern =
+    //   /^https:\/\/www\.tiktok\.com\/@[^/]+\/video\/\d+\??[^/]*$/;
 
-    const isLongVideoURLMatch = regexPattern.test(videoURL);
+    // const isLongVideoURLMatch = regexPattern.test(videoURL);
 
-    if (!isLongVideoURLMatch) {
-      videoURL = await getTikTokFullUrl(videoURL);
-    }
+    // if (!isLongVideoURLMatch) {
+    //   videoURL = await getTikTokFullUrl(videoURL);
+    //   console.log("Check1",videoURL);
+    // }
 
-    const videoID = await getVideoIDFromURL(videoURL);
+    // const videoID = await getVideoIDFromURL(videoURL);
 
-    if (videoID) {
-      // const referrer = req.headers.referer || req.headers.origin || "";
-      // const allowedReferrers = [
-      //   "http://localhost:3300",
-      //   "https://www.ttdownloader.io",
-      //   "https://www.ttdownloader.io/",
-      // ];
-      // if (
-      //   allowedReferrers.some((trustedReferrer) =>
-      //     referrer.includes(trustedReferrer)
-      //   )
-      // ) {
-      let api_url = `https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/feed/?aweme_id=${videoID}`;
-      const response = await axios.get(api_url);
-      const data = await response.data.aweme_list[0];
-      res.status(200).json(data);
+    if (videoURL) {
+      let api_url = `https://www.tikwm.com/api/`;
+      const response = await axios.post(api_url, {
+        url: videoURL,
+      });
+      const json_data = response.data.data
+      const result_response = {
+        title : json_data?.title,
+        cover : json_data?.cover,
+        with_watermark_url: json_data?.wmplay,
+        without_watermark_url: json_data?.play,
+        author_name : json_data?.author?.nickname,
+        author_avatar_url : json_data?.author?.avatar,
+        music : json_data?.music,
+        other_data : {
+          ...json_data
+        }
+      }
+      
+      // const data = await response.data.aweme_list[0];
+      res.status(200).json(result_response);
       // }
       // else {
       //   res.status(401).json("Access Denied");
