@@ -17,7 +17,7 @@ const nextConfig = withPWA({
   reactStrictMode: true,
   swcMinify: true,
   i18n: {
-    locales: ["en-US", "de"],
+    locales: ["en", "de"],
     defaultLocale: "en",
     localeDetection: false,
   },
