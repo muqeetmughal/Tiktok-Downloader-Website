@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React, { useRef, useState } from "react";
 import NavMenu from "./NavMenu";
 import ThemeToggler from "./ThemeToggler";
+import LanguageSwitch from "./LanguageSwitch";
 
 const navMenu = [
   {
@@ -127,7 +128,11 @@ const TopNav = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        <LanguageSwitch/>
+        <div className="hidden sm:block">
+
         <ThemeToggler />
+        </div>
       </div>
     </div>
   );

@@ -17,12 +17,13 @@ const nextConfig = withPWA({
   reactStrictMode: true,
   swcMinify: true,
   i18n: {
-    locales: ["en", "de"],
+    locales: ["en-US", "de"],
     defaultLocale: "en",
     localeDetection: false,
   },
   images: {
     domains: ["nilkinpakistan.com"],
   },
+  
 });
 module.exports = nextConfig;

@@ -15,15 +15,15 @@ const Home = () => {
         <link rel="canonical" href="https://ttdownloader.io/" />
         <meta
           name="title"
-          content="Free Password Generator | Online Random Password Generator Website"
+          content="Tiktok Video Downloader | Download Tiktok Videos without watermark for free"
         />
         <meta
           name="description"
-          content="Free Password Generator is an online tool to generate random passwords of your choice in numbers, uppercase, lowercase, and symbol combinations."
+          content="Tiktok Video Downloader is the platform to download tiktok videos without watermark for free"
         />
         <meta
           name="keywords"
-          content="free password generator, password generator, strong password generator, secure password generator, password generator online, pwd generator, "
+          content="tiktok video downloader, tiktok downloader,tiktok without watermark downloader, tiktok no watermark"
         />
         {/* <meta name="robots" content="index, follow, max-image-preview:large" /> */}
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />

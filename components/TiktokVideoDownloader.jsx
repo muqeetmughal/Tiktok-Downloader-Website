@@ -12,8 +12,8 @@ import Link from "next/link";
 const TiktokVideoDownloader = (props) => {
   const router = useRouter();
   const [videoURL, setVideoURL] = useState(
-    "https://www.tiktok.com/@ubed_sk007/video/7274366546275732741"
-    // ""
+    // "https://www.tiktok.com/@ubed_sk007/video/7274366546275732741"
+    ""
   );
   const [downloadURL, setDownloadURL] = useState(null);
   const [downloadMode, setDownloadMode] = useState('video')
