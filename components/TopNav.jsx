@@ -9,10 +9,10 @@ const navMenu = [
     name: "Download Tiktok MP3",
     link: "/download-tiktok-mp3",
   },
-  {
-    name: "Download Tiktok Story",
-    link: "/download-tiktok-story",
-  },
+  // {
+  //   name: "Download Tiktok Story",
+  //   link: "/download-tiktok-story",
+  // },
   {
     name: "How to save tiktok video?",
     link: "/how-to-download-tiktok-video",

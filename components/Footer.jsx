@@ -8,15 +8,15 @@ const Footer = () => {
     <>
       <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
         <nav className="grid grid-flow-col gap-4">
-          <Link href={"/download-tiktok-story"} className="link link-hover">
+          {/* <Link href={"/download-tiktok-story"} className="link link-hover">
             Download Tiktok Story
-          </Link>
+          </Link> */}
           <Link href={"/contact"} className="link link-hover">
             Contact
           </Link>
-          <Link href={"/apk"} className="link link-hover">
+          {/* <Link href={"/apk"} className="link link-hover">
             APK
-          </Link>
+          </Link> */}
 
           <Link href={"/privacy-policy"} className="link link-hover">
             Privacy Policy
