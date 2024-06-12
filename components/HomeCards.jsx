@@ -39,6 +39,7 @@ const HomeCards = () => {
                     width={100}
                     height={200}
                     alt={item.heading}
+                    
                   />
                 </div>
                 <h2 className="text-xl font-semibold text-gray-600">
