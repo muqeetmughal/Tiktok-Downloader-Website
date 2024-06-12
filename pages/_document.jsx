@@ -57,7 +57,7 @@ export default function Document() {
                 <meta name="twitter:title" content="Tiktok Video Downloader" />
                 <meta name="twitter:description" content="Download Tiktok videos without watermark for free" />
                 {/* <meta name="twitter:image" content="https://www.ttdownloader.io/icons/android-chrome-192x192.png" /> */}
-                <meta name="twitter:creator" content="@muqeet.exe" />
+                <meta name="twitter:creator" content="@developermuqeet" />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="Tiktok Video Downloader" />
                 <meta property="og:description" content="Download Tiktok videos without watermark for free" />
