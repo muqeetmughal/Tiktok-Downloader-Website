@@ -34,7 +34,7 @@ const Accordian = () => {
         <>
 
             <div className="max-w-full mx-auto p-2 py-5">
-            <h1 className="text-2xl font-bold text-gray-600 pb-4">FAQs</h1>
+            <h2 className="text-2xl font-bold text-gray-600 pb-4">FAQs</h2>
                 {accordionData.map((item, index) => (
                     <div key={index} className="mb-4">
                         <button

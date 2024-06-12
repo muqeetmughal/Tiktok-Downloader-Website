@@ -62,7 +62,7 @@ const TiktokMp3Downloaad = () => {
             <p>For the quickest way to download videos from TikTok in mp3 or mp4 formats, visit www.ssstik.io TikTok downloader. Download a single video to witness how the process works.</p>
 
             <div className="p-2">
-              <h1 className="text-2xl font-bold text-purple-600 pb-4">STEPS TO BE FOLLOWED</h1>
+              <h2 className="text-2xl font-bold text-purple-600 pb-4">STEPS TO BE FOLLOWED</h2>
 
               <ul className="p-4 card my-1 shadow-xl bg-gradient-to-t from-purple-600 to-pink-500">
                 {ways.map((item, index) => {
@@ -77,7 +77,7 @@ const TiktokMp3Downloaad = () => {
 
 
             <div className="max-w-full mx-auto p-2 py-8">
-              <h1 className="text-2xl font-bold text-gray-600 pb-4">FAQs</h1>
+              <h2 className="text-2xl font-bold text-gray-600 pb-4">FAQs</h2>
               {accordionData.map((item, index) => (
                 <div key={index} className="mb-4">
                   <button

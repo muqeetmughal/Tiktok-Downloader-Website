@@ -72,7 +72,7 @@ const DownloadTiktokStoryPage = () => {
         <div className="card my-1 shadow-xl">
           <div className="card-body text-justify">
             <div className="p-2">
-              <h1 className="text-2xl font-bold text-purple-600 pb-4">GUIDE</h1>
+              <h3 className="text-2xl font-bold text-purple-600 pb-4">GUIDE</h3>
 
               <ul className="p-4 card my-1 shadow-xl bg-gradient-to-t from-purple-600 to-pink-500">
                 {guide.map((item, index) => {

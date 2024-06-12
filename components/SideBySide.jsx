@@ -9,7 +9,7 @@ const SideBySide = () => {
           <Image src={image} alt="Your Image" className="h-auto p-10 " />
         </div>
         <div className="lg:w-1/2 text-justify p-4">
-          <h1 className="text-xl font-bold text-purple-600">DOWNLOAD TIKTOK</h1>
+          <h2 className="text-xl font-bold text-purple-600">DOWNLOAD TIKTOK</h2>
           <p>
             If you want to download TikTok video on Android mobile phone, you
             need to launch the TikTok app and find the video you want to save.

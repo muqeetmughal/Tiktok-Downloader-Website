@@ -8,7 +8,7 @@ const Error404 = () => {
         <div className="hero-content text-center">
           <div className="max-w-md">
             <h1 className="text-5xl font-bold text-red-600">
-              404 | OOOPS! PAGE NOT FOUND.
+              404 | OOPS! PAGE NOT FOUND.
             </h1>
             <p className="py-6">
               It looks like we missed something, or you entered the wrong URL in
