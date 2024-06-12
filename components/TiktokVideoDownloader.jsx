@@ -153,12 +153,11 @@ const TiktokVideoDownloader = (props) => {
       return (
         <>
           <h1 className="text-5xl font-bold text-white">
-            {CONTEXT.MAIN_KEYWORD}
+            {props.heading}
           </h1>
 
           <p className="py-6 text-white">
-            TikTok video downloader tool helping you download TikTok video
-            without watermark
+          {props.paragraph}
           </p>
 
           <div className="form-control">

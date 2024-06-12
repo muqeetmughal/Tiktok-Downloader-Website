@@ -6,11 +6,27 @@ export default function Document() {
     <>
       <Html>
         <Head>
+         
+          {/* <link rel="canonical" href="https://ttdownloader.io/" /> */}
+          <meta
+            name="title"
+            content="Tiktok Video Downloader | Download Tiktok Videos without watermark for free"
+          />
+          <meta
+            name="description"
+            content="Tiktok Video Downloader is the platform to download tiktok videos without watermark for free"
+          />
+          <meta
+            name="keywords"
+            content="tiktok video downloader, tiktok downloader,tiktok without watermark downloader, tiktok no watermark"
+          />
           <link rel="icon" href="/images/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/images/favicon.ico"></link>
-          <meta name="theme-color" content="#fff" />
-          <meta name="robots" content="noindex, nofollow" />
+          <meta name="robots" content="index, follow" />
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+          <meta name="revisit-after" content="1 days" />
+          <meta name="author" content="Muqeet Mughal"></meta>
 
           {/* <meta name="application-name" content="PWA App" />
                 <meta name="apple-mobile-web-app-capable" content="yes" />

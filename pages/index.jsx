@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Content from "../components/Content";
 import i18n from "../i18";
 import TiktokVideoDownloader from "../components/TiktokVideoDownloader";
+import { CONTEXT } from "../constants/variables";
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
           Tiktok Downloader | Download Tiktok Videos without watermark
         </title>
 
-        <link rel="canonical" href="https://ttdownloader.io/" />
+        {/* <link rel="canonical" href="https://ttdownloader.io/" /> */}
         <meta
           name="title"
           content="Tiktok Video Downloader | Download Tiktok Videos without watermark for free"
@@ -25,14 +26,11 @@ const Home = () => {
           name="keywords"
           content="tiktok video downloader, tiktok downloader,tiktok without watermark downloader, tiktok no watermark"
         />
-        {/* <meta name="robots" content="index, follow, max-image-preview:large" /> */}
-        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="language" content="English" />
-        <meta name="revisit-after" content="1 days" />
-        <meta name="author" content="Muqeet Mughal"></meta>
+
       </Head>
 
-      <TiktokVideoDownloader />
+      <TiktokVideoDownloader heading={CONTEXT.MAIN_KEYWORD} paragraph=" TikTok video downloader tool helping you download TikTok video without watermark"/>
+     
 
       <div className="w-full h-full sm:max-w-screen-sm sm:mx-auto">
         <Content />

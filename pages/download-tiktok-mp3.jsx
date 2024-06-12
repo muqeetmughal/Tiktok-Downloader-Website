@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Accordian from "../components/Accordian";
 import StepsToFollow from "../components/StepsToFollow";
+import TiktokVideoDownloader from "../components/TiktokVideoDownloader";
+import { CONTEXT } from "../constants/variables";
 
 const TiktokMp3Downloaad = () => {
 
@@ -48,6 +50,9 @@ const TiktokMp3Downloaad = () => {
 
   return (
     <>
+    <TiktokVideoDownloader heading={"Download TikTok MP3"} paragraph="TikTok video downloader tool helping you download TikTok video without watermark and audio"/>
+     
+
       <div className="w-full h-full sm:max-w-screen-sm sm:mx-auto my-10">
 
         <div className="card my-1 shadow-xl">
