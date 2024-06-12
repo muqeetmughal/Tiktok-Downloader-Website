@@ -7,7 +7,7 @@ const HomeCards = () => {
   const cardData = [
     {
       image: image,
-      heading: "Unlimited",
+      heading: "Unlimited Downloads",
       text: "Save as many videos as you need, no limits or any other restrictions.",
     },
     {
@@ -38,7 +38,7 @@ const HomeCards = () => {
                     src={item.image}
                     width={100}
                     height={200}
-                    alt=""
+                    alt={item.heading}
                   />
                 </div>
                 <h2 className="text-xl font-semibold text-gray-600">
